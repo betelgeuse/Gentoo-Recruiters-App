@@ -31,6 +31,10 @@ class SeedHelper
   end
 end
 
+puts "Please give OpenID you want to set for admin account:"
+STDOUT.flush()
+AdminOpenID = STDIN.gets.chomp
+
 # Remove existing database entries
 User.destroy_all
 Answer.destroy_all
@@ -64,7 +68,6 @@ user_cats = [
 for uc in user_cats
   UserCategory.create! :question_category => seeder.objects[uc[0]], :user => seeder.objects[uc[1]]
 end
-
 
 ebuild_q  = ['ebuild_q1', 'ebuild_q2', 'ebuild_q3']
 mentor_q  = ['mentor_q1', 'mentor_q2', 'mentor_q3']

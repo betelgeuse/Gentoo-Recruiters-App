@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100625160008) do
+ActiveRecord::Schema.define(:version => 20100701095849) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -77,17 +77,16 @@ ActiveRecord::Schema.define(:version => 20100625160008) do
     t.datetime "remember_token_expires_at"
     t.string   "name"
     t.string   "email_address"
-    t.boolean  "administrator",                           :default => false
-    t.string   "role",                                    :default => "recruit"
+    t.string   "openid"
+    t.boolean  "administrator",             :default => false
+    t.string   "role",                      :default => "recruit"
     t.string   "nick"
+    t.text     "contributions"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mentor_id"
-    t.string   "state",                                   :default => "active"
+    t.string   "state",                     :default => "active"
     t.datetime "key_timestamp"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.text     "contributions"
   end
 
   add_index "users", ["mentor_id"], :name => "index_users_on_mentor_id"

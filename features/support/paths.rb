@@ -37,6 +37,9 @@ module NavigationHelpers
 
     when /project acceptance of "([^\"]*)" by "([^\"]*)" edit page/
       edit_project_acceptance_path(ProjectAcceptance.find_by_user_name_and_accepting_nick($1, $2))
+
+    when /signup page/
+      user_signup_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

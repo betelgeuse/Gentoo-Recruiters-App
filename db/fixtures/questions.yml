@@ -20,6 +20,27 @@ ebuild_q3:
   content:  "When is it appropriate to post to the following mailing lists:
     gentoo-core, gentoo-dev, gentoo-dev-announce, gentoo-project?"
 
+ebuild_q4:
+  title:              New project
+  documentation:      GLEPs
+  question_category:  ebuild
+  content:            Who can start new Gentoo projects and how is it done?
+  question_group:     ebuild_group1
+
+ebuild_q5:
+  title:              Herds
+  documentation:      devmanual
+  question_category:  ebuild
+  content:            What is the purpose of herds?
+  question_group:     ebuild_group1
+
+ebuild_q6:
+  title:              Devaway
+  documentation:      handbook
+  question_category:  ebuild
+  content:            What is the devaway system?
+  question_group:     ebuild_group1
+
 mentor_q1:
   title:              Scopes in ebuild
   documentation:      handbook

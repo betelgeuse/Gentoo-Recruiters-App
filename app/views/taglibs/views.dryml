@@ -1,0 +1,18 @@
+<def tag="view" for="QuestionContentText">
+  <div>
+    <%= this.content%>
+  </div>
+</def>
+
+<def tag="view" for="QuestionContentMultipleChoice">
+  <%= this.content %>
+  <ul>
+    <repeat:options>
+      <li><%=this.content%></li>
+    </repeat>
+  </ul>
+</def>
+
+<def tag="view" for="CheckList">
+  <input disabled/>
+</def>

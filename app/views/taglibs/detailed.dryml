@@ -20,3 +20,18 @@
   <h5>Answer:</h5>
   <view:content/>
 </def>
+
+<def tag="detailed" for="MultipleChoiceAnswer">
+  <h2>
+    Answer of
+      <with:owner><name/></with>
+    for question
+    "<with:question><name/></with>
+    <a action="edit" if="&can_edit?">(Edit)</a>
+  </h2>
+  <h5>Question:</h5>
+  <with:question><view:content/></with>
+
+  <h5>Answer:</h5>
+  <view:options/>
+</def>

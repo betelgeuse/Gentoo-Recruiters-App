@@ -8,6 +8,11 @@
 
 <def tag="app-name">Gentoo Recruiters App</def>
 <include src="cards"/>
+<<<<<<< HEAD
+=======
+<include src="inputs"/>
+<include src="views"/>
+>>>>>>> bf85cd7... Multiple choice questions
 <include src="forms"/>
 <include src="detailed"/>
 <include src="pages"/>

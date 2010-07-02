@@ -40,7 +40,6 @@ describe Question do
   end
 
   it { should validate_presence_of :title }
-  it { should validate_presence_of :content }
 
   it "should return proper answer of user" do
     question  = Factory(:question)

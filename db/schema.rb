@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100709083952) do
+ActiveRecord::Schema.define(:version => 20100709084032) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(:version => 20100709083952) do
     t.datetime "updated_at"
     t.integer  "question_id"
     t.integer  "owner_id"
+    t.string   "type"
   end
 
   add_index "answers", ["owner_id"], :name => "index_answers_on_owner_id"
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+  add_index "answers", ["type"], :name => "index_answers_on_type"
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -34,6 +36,16 @@ ActiveRecord::Schema.define(:version => 20100709083952) do
 
   add_index "comments", ["answer_id"], :name => "index_comments_on_answer_id"
   add_index "comments", ["owner_id"], :name => "index_comments_on_owner_id"
+
+  create_table "options", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "option_owner_id"
+    t.string   "option_owner_type"
+  end
+
+  add_index "options", ["option_owner_type", "option_owner_id"], :name => "index_options_on_option_owner_type_and_option_owner_id"
 
   create_table "project_acceptances", :force => true do |t|
     t.string   "accepting_nick"
@@ -50,6 +62,24 @@ ActiveRecord::Schema.define(:version => 20100709083952) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "question_content_multiple_choices", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+  end
+
+  add_index "question_content_multiple_choices", ["question_id"], :name => "index_question_content_multiple_choices_on_question_id"
+
+  create_table "question_content_texts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+  end
+
+  add_index "question_content_texts", ["question_id"], :name => "index_question_content_texts_on_question_id"
 
   create_table "question_groups", :force => true do |t|
     t.string   "name",        :null => false

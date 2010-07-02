@@ -47,3 +47,7 @@
     </if>
   </section>
 </def>
+
+<def tag="new-page" for="MultipleChoiceAnswer">
+  Alamqakota
+</def>

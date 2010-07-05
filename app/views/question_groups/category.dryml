@@ -1,0 +1,19 @@
+<index-page>
+  <content:>
+    <form action="/question_groups/category">
+      <select name="id">
+        <option value="<%=nil%>">All categories</option>
+        <repeat with="&QuestionCategory.all :select => 'name, id'">
+          <if test="&params['id'] == this.id.to_s">
+            <option value="<%=this.id%>" selected><%=this.name%></option>
+          </if>
+          <else>
+            <option value="<%=this.id%>"  ><%=this.name%></option>
+          </else>
+        </repeat>
+      </select>
+      <submit label="view in this category"/>
+    </form>
+    <collection/>
+  </content:>
+</index-page>

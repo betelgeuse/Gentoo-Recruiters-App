@@ -49,7 +49,7 @@ seeder.objects['mentoring'] = QuestionCategory.create! :name => 'End of mentorin
 seeder.objects['non']       = QuestionCategory.create! :name => 'Non-ebuild staff quiz'
 
 # Question groups
-seeder.objects['ebuild_group1'] = QuestionGroup.create! :name => 'ebuild_group1'
+seeder.objects['ebuild_group1'] = QuestionGroup.create! :name => 'ebuild_group1', :description => 'Some easy qestions'
 
 # Questions - load from YAML file
 seeder.read_yaml 'db/fixtures/questions.yml', Question, ['question_category', 'question_group']

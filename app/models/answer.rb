@@ -71,12 +71,20 @@ class Answer < ActiveRecord::Base
     end
 
   end
+
+  def self.wrong_answers_of(uid)
+    Answer.find_by_sql ["SELECT ans.* FROM answers ans, answers ref WHERE
+      ref.reference = 't' AND ans.question_id = ref.question_id AND
+      ans.content != ref.content AND ans.owner_id = ?", uid]
+  end
+
   protected
     def notify_new_answer
-      UserMailer.deliver_new_answer(owner.mentor, self)unless owner.mentor.nil?
+      UserMailer.deliver_new_answer(owner.mentor, self) unless owner.mentor.nil?
     end
 
     def notify_changed_answer
-      UserMailer.deliver_changed_answer owner.mentor, self
+      UserMailer.deliver_changed_answer(owner.mentor, self) unless owner.mentor.nil?
     end
+
 end

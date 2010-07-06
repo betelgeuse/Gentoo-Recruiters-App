@@ -103,6 +103,12 @@ class Question < ActiveRecord::Base
 
   named_scope   :questions_to_approve, :conditions => { :approved => false }
 
+  named_scope   :multiple_choice, :joins => :question_content_multiple_choice
+
+  def has_wrong_answers_ungroupped(uid)
+    
+  end
+
   def answered?(user)
     user.signed_up? && user.answered_questions.include?(self)
   end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707090607) do
+ActiveRecord::Schema.define(:version => 20100707091439) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -66,9 +66,11 @@ ActiveRecord::Schema.define(:version => 20100707090607) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "question_category_id"
+    t.integer  "question_group_id"
   end
 
   add_index "questions", ["question_category_id"], :name => "index_questions_on_question_category_id"
+  add_index "questions", ["question_group_id"], :name => "index_questions_on_question_group_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "user_categories", :force => true do |t|

@@ -16,3 +16,7 @@
 <def tag="view" for="RichTypes::CheckList">
   <input disabled/>
 </def>
+
+<def tag="view" for="QuestionContentEmail">
+  <%= h(this.req_text).sub("\n", "<br/>\n") %><br/>
+</def>

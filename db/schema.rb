@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(:version => 20100709084032) do
     t.datetime "updated_at"
   end
 
+  create_table "question_content_emails", :force => true do |t|
+    t.text     "requirements", :default => ""
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+  end
+
+  add_index "question_content_emails", ["question_id"], :name => "index_question_content_emails_on_question_id"
+
   create_table "question_content_multiple_choices", :force => true do |t|
     t.text     "content"
     t.datetime "created_at"

@@ -11,10 +11,10 @@ class QuestionContentText < ActiveRecord::Base
   belongs_to  :question
 
   def questions_permission(permission)
-    if permission.to_s != 'create'
-      question.send("#{permission.to_s}able_by?", acting_user)
+    if ['create', 'update'].include? permission.to_s
+      question.send("#{permission.to_s.chop}able_by?", acting_user)
     else
-      question.send("creatable_by?", acting_user)
+      question.send("#{permission.to_s}able_by?", acting_user)
     end
   end
 
